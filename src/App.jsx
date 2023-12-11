@@ -6,6 +6,7 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+  const [possibleCombinations, setPossibleCombinations] = useState(0);
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -19,6 +20,7 @@ function App() {
       pass += string.charAt(char);
     }
     setPassword(pass);
+    setPossibleCombinations(Math.pow(string.length, length));   // Using Combination & Repition Principle [n^r]
   }, [length, numberAllowed, charAllowed]);
 
   const copyPasswordToClipboard = useCallback(() => {
@@ -55,6 +57,10 @@ function App() {
           >
             Copy
           </button>
+        </div>
+        <div className="text-white text-center" style={{ fontSize: "smaller" }}>
+            {possibleCombinations} Other combinations available!
+            <div style={{ paddingBottom: "1rem" }}></div>
         </div>
         <div className="flex text-sm gap-x-2 justify-center">
           <div className="flex items-center gap-x-1">
