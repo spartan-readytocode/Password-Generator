@@ -9,4 +9,4 @@ Before you begin, ensure that Node.js is installed on your device.
    Clone this project to your local machine.
 
    ```bash
-   git clone [repository_url]
+   git clone git@github.com:spartan-readytocode/Password-Generator.git
